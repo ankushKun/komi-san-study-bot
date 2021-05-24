@@ -1,0 +1,9 @@
+{
+    "apiKey": "AIzaSyD38yX10Ucht9ok8AW3LVOnUF95XxthKOo",
+    "authDomain": "komisan-db.firebaseapp.com",
+    "projectId": "komisan-db",
+    "storageBucket": "komisan-db.appspot.com",
+    "messagingSenderId": "145552519059",
+    "appId": "1:145552519059:web:5653fd78f4dd963f5e4266",
+    "databaseURL":"https://komisan-db-default-rtdb.asia-southeast1.firebasedatabase.app/"
+  }
