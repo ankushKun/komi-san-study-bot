@@ -150,7 +150,7 @@ class Timers(commands.Cog):
         now_studying = self.get_vc_members()
         for member in now_studying:
             if not member.bot:
-                self.add_time(member)
+                await self.add_time(member)
         await self.BOT_CHANNEL.send(
             f"> updated timings [`{datetime.now(timezone('GMT'))} GMT`]"
         )
