@@ -101,6 +101,8 @@ class Timers(commands.Cog):
             for r in LEVELS:
                 if hours <= r:
                     pos = LEVELS.index(r)
+                    if pos < 0:
+                        pos = 0
                     role_to_give = self.LEVEL_ROLES[pos - 1]
                     break
             for role in self.LEVEL_ROLES:
