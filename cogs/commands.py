@@ -163,7 +163,7 @@ class Cmds(commands.Cog):
             for r in LEVELS:
                 if hours <= r:
                     pos = LEVELS.index(r)
-                    role_to_give = self.LEVEL_ROLES[pos]
+                    role_to_give = self.LEVEL_ROLES[pos - 1]
                     for role in self.LEVEL_ROLES:
                         await m.remove_roles(role)
                     await m.add_roles(role_to_give)
