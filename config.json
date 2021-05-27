@@ -34,5 +34,11 @@
         }
     },
     "KICK_STALKERS_AFTER": 2,
-    "TIMER_INTERVAL": 10
+    "TIMER_INTERVAL": 10,
+    "INTEGRATIONS": {
+        "785024897863647282": [
+            801096719982657556,
+            785027080713797641
+        ]
+    }
 }
