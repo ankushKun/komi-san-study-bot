@@ -20,12 +20,11 @@ class OSI(commands.Cog):
 
         if after.channel != None and after.channel.category_id in study_categ_ids:
             # WHEN SOMEONE JOINS A STUDY CHANNEL
-            # GIVE ROLE ON OTHER SERVER
             for guild_id in SERVERS:
                 guild = self.bot.get_guild(int(guild_id))
                 if member.id in [mem.id for mem in guild.members]:
-                    role1 = guild.get_role(SERVERS[guild_id][0])
-                    role2 = guild.get_role(SERVERS[guild_id][1])
+                    role1 = guild.get_role(SERVERS[guild_id][0])  # STUDYING ROLE
+                    role2 = guild.get_role(SERVERS[guild_id][1])  # NORMAL ROLE
                     m = guild.get_member(member.id)
                     await m.add_roles(role1)
                     await m.remove_roles(role2)
@@ -36,8 +35,8 @@ class OSI(commands.Cog):
             for guild_id in SERVERS:
                 guild = self.bot.get_guild(int(guild_id))
                 if member.id in [mem.id for mem in guild.members]:
-                    role1 = guild.get_role(SERVERS[guild_id][0])
-                    role2 = guild.get_role(SERVERS[guild_id][1])
+                    role1 = guild.get_role(SERVERS[guild_id][0])  # STUDYING ROLE
+                    role2 = guild.get_role(SERVERS[guild_id][1])  # NORMAL ROLE
                     m = guild.get_member(member.id)
                     await m.remove_roles(role1)
                     await m.add_roles(role2)

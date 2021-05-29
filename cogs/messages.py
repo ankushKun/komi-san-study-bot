@@ -81,6 +81,8 @@ class Mesages(commands.Cog):
                     msg += f"**You need to share your screen or turn on camera or you will be moved to another channel**\n"
                 msg += f"Head over to <#{config['CHANNELS']['TEXT']['ACCOUNTABILITY']}> and post some goals to get started\n"
                 await self.BOT_CHANNEL.send(msg)
+                if after.channel.category_id == config["CATEGORY"]["PRIVATE"]:
+                    await member.edit(mute=False)
             else:
                 await member.edit(mute=False)
 
