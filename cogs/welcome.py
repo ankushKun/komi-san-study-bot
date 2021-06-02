@@ -8,6 +8,7 @@ from io import BytesIO
 import requests
 
 import json
+
 with open("config.json", "r") as read_file:
     config = json.load(read_file)
 
@@ -22,12 +23,15 @@ WELCOME_MESSAGE = """welcome {} <a:komi_surprised:843170284184928356>
 Head over to <#843086417608572948> and <#843086772966916146> to get access to the server
 """
 
+
 class Welcome(commands.Cog):
-    def __init__(self,bot):
-        self.bot=bot
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
+        if not member.guild.id == GUILD_ID:
+            return
         GUILD = self.bot.get_guild(GUILD_ID)
         CHANNEL = GUILD.get_channel(WELCOME_CHANNEL)
         r = requests.get(member.avatar_url)
@@ -59,14 +63,13 @@ class Welcome(commands.Cog):
             font=KOMI_FONT,
             stroke_fill=(0, 0, 100, 255),
         )
-        PATH=f"images/generated/{member.id}.png"
+        PATH = f"images/generated/{member.id}.png"
         bg_img.save(PATH)
         image_file = discord.File(PATH)
-        await CHANNEL.send(WELCOME_MESSAGE.format(member.mention),file=image_file)
+        await CHANNEL.send(WELCOME_MESSAGE.format(member.mention), file=image_file)
         os.remove("PATH")
-
 
 
 def setup(bot):
     bot.add_cog(Welcome(bot))
-    print('---> WELCOME LOADED')
+    print("---> WELCOME LOADED")
